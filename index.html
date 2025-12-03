@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Truyện Online</title>
+
+    <link rel="website icon" href="../assets/visual/icon/monkey.png">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Thư Viện Truyện Online</h1>
+        <p>Đọc truyện miễn phí – Xem quảng cáo để mở phần tiếp theo</p>
+    </header>
+
+    <main class="main-grid">
+        <aside id="side-panel" class="side-panel">
+            <div class="panel-header">
+                <h3>Thể Loại</h3>
+                <button id="toggle-panel" class="toggle-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            <div class="panel-content">
+                <ul class="genre-list">
+                    <li data-type="all" class="active">Tất cả truyện</li>
+                    <li data-type="ngon-tinh">Ngôn Tình</li>
+                    <li data-type="tien-hiep">Tiên Hiệp</li>
+                    <li data-type="huyen-huyen">Huyền Huyễn</li>
+                    <li data-type="kinh-di">Kinh Dị</li>
+                    <li data-type="hanh-dong">Hành Động</li>
+                    <li data-type="khoa-huyen">Khoa Huyễn</li>
+                    <li data-type="hai-huoc">Hài Hước</li>
+                </ul>
+            </div>
+        </aside>
+
+        <section class="story-container">
+            <div class="story-list" id="story-list"></div>
+        </section>
+    </main>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

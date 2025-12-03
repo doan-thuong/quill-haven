@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "title": "Hành trình của gió",
+        "description": "Một câu chuyện về hành trình khám phá bản thân qua những cơn gió.",
+        "file": "story_1.json",
+        "page": "story/story.html",
+        "type": "hanh-dong"
+    },
+    {
+        "id": 2,
+        "title": "Bí mật dưới tán cây",
+        "description": "Một bí ẩn được giấu kín trong khu rừng cổ thụ.",
+        "file": "story2.json",
+        "page": "story/story.html",
+        "type": ""
+    },
+    {
+        "id": 3,
+        "title": "Tiên Giới Chi Chiến",
+        "description": "Cuộc chiến giữa các tông môn lớn...",
+        "file": "story3.json",
+        "page": "pages/story-3.html",
+        "type": "tien-hiep"
+    },
+    {
+        "id": 4,
+        "title": "Em là ánh trăng",
+        "description": "Tình yêu nhẹ nhàng giữa hai con người trái ngược...",
+        "file": "story4.json",
+        "page": "pages/story-4.html",
+        "type": "ngon-tinh"
+    }
+]
