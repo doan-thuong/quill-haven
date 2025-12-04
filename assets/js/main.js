@@ -42,10 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const map = {
             'ngon-tinh': 'Ngôn Tình',
             'tien-hiep': 'Tiên Hiệp',
-            'huyen-huyen': 'Huyền Huyễn',
             'kinh-di': 'Kinh Dị',
             'hanh-dong': 'Hành Động',
-            'khoa-huyen': 'Khoa Huyễn',
+            'khoa-huyen': 'Khoa Học Viễn Tưởng',
             'hai-huoc': 'Hài Hước'
         };
         return map[type] || 'Khác';

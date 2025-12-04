@@ -9,11 +9,11 @@
     },
     {
         "id": 2,
-        "title": "Bí mật dưới tán cây",
-        "description": "Một bí ẩn được giấu kín trong khu rừng cổ thụ.",
-        "file": "story2.json",
+        "title": "Trí tuệ nhân tạo thức tỉnh",
+        "description": "Một AI được tạo ra để phục vụ nhân loại nhưng bắt đầu phát triển ý thức riêng, dẫn đến một cuộc nổi dậy bí ẩn.",
+        "file": "story_2.json",
         "page": "story/story.html",
-        "type": ""
+        "type": "khoa-huyen"
     },
     {
         "id": 3,
