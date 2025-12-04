@@ -70,6 +70,9 @@ header {
     background: #fffff8;
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
+    white-space: pre-wrap;
+    tab-size: 4;
+    text-align: justify;
     min-height: 60vh;
 }
 
