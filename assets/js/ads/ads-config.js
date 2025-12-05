@@ -6,17 +6,10 @@ const ADS_CONFIG = {
     },
 
     admob: {
-        appId: "ca-app-pub-xxx~yyyyyyyy",           // Android
+        appId: "ca-app-pub-1571883208341918~4845312734",           // Android
         appIdIos: "ca-app-pub-xxx~zzzzzzzz",       // iOS (nếu có)
-        bannerId: "ca-app-pub-xxx/1111111111",
-        rewardedId: "ca-app-pub-xxx/2222222222"
-    },
-
-    topon: {
-        appId: "YOUR_TOPON_APP_ID",
-        appKey: "YOUR_TOPON_APP_KEY",
-        bannerPlacement: "your_banner_placement",
-        rewardedPlacement: "your_rewarded_placement"
+        bannerId: "ca-app-pub-1571883208341918/7648952931",
+        rewardedId: "ca-app-pub-1571883208341918/3764891703"
     },
 
     // Cấu hình chung
