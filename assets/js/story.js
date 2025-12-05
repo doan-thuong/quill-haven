@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.disabled = true;
         nextBtn.textContent = "Đang tải quảng cáo...";
 
-        RewardedManager.show((success) => {
+        AdsManager.showRewarded((success) => {
             if (success) {
                 displayPhase(currentPhase + 1);
             } else {

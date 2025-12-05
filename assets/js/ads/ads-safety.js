@@ -67,6 +67,11 @@ class AdsSafety {
             count++;
             localStorage.setItem(KEY, count);
         });
+
+        window.addEventListener('reward_granted', () => {
+            count++;
+            localStorage.setItem(KEY, count);
+        });
     }
 
     // 4. Không hiện quảng cáo trong 8 giây đầu tiên (rất quan trọng!)
