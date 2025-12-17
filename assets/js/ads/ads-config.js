@@ -18,4 +18,12 @@ const ADS_CONFIG = {
     sessionMinutes: 30
 };
 
-window.ADS_CONFIG = ADS_CONFIG;
+const ADSENSE_CONFIG = {
+    clientId: "ca-pub-1571883208341918",
+    bannerSlot: "1234567890",
+    interstitialSlot: "0987654321",
+    debug: true
+};
+
+window.ADSENSE_CONFIG = ADSENSE_CONFIG;
+// window.ADS_CONFIG = ADS_CONFIG;

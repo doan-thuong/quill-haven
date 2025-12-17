@@ -1,77 +1,59 @@
-// assets/js/ads-manager.js
+// assets/js/adsense-manager.js
 class AdsManager {
-    static currentProvider = null;
-    static rewardedCallback = null;
-    static isLoading = false;
+    static init() {
+        console.log("AdSense Manager khởi động");
 
-    static async init() {
-        if (ADS_CONTROLLER.emergencyOff) {
-            console.warn("TẮT KHẨN CẤP! Không hiển thị quảng cáo");
-            return;
+        // Load AdSense SDK (chỉ load 1 lần)
+        if (!document.querySelector('script[src*="adsbygoogle.js"]')) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CONFIG.clientId}`;
+            script.crossOrigin = "anonymous";
+            document.head.appendChild(script);
         }
 
-        const providers = [];
-        if (ADS_CONTROLLER.applovin) providers.push({ name: "applovin", init: initApplovin });
-        if (ADS_CONTROLLER.admob) providers.push({ name: "admob", init: initAdmob });
-
-        for (const p of providers) {
-            try {
-                console.log(`[AdsManager] Khởi động ${p.name.toUpperCase()}...`);
-                await p.init();
-                this.currentProvider = p.name;
-                console.log(`[AdsManager] ĐANG DÙNG: ${p.name.toUpperCase()}`);
-                this.showBanner();
-                return;
-            } catch (err) {
-                console.warn(`[AdsManager] ${p.name} lỗi → thử tiếp theo`, err);
-            }
-        }
-        console.error("TẤT CẢ NHÀ CUNG CẤP ĐỀU LỖI!");
+        // Tự động hiện banner ở footer
+        this.showBanner();
     }
 
     static showBanner() {
-        if (!this.currentProvider) return;
-        const func = window[`show${this.currentProvider.charAt(0).toUpperCase() + this.currentProvider.slice(1)}Banner`];
-        func?.();
+        const banner = document.createElement('div');
+        banner.innerHTML = `
+      <ins class="adsbygoogle"
+           style="display:block; text-align:center;"
+           data-ad-client="${ADSENSE_CONFIG.clientId}"
+           data-ad-slot="${ADSENSE_CONFIG.bannerSlot}"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    `;
+        document.body.appendChild(banner);
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        console.log("Banner AdSense đã hiển thị");
     }
 
-    static showRewarded(callback) {
-        if (this.isLoading || !this.currentProvider) return callback(false);
-        this.isLoading = true;
-        this.rewardedCallback = callback;
+    static showInterstitialAsRewarded(callback) {
+        const interstitial = document.createElement('div');
+        interstitial.innerHTML = `
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="${ADSENSE_CONFIG.clientId}"
+           data-ad-slot="${ADSENSE_CONFIG.interstitialSlot}"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    `;
+        document.body.appendChild(interstitial);
+        (adsbygoogle = window.adsbygoogle || []).push({});
 
-        const func = window[`show${this.currentProvider.charAt(0).toUpperCase() + this.currentProvider.slice(1)}Rewarded`];
-        if (func) {
-            func().catch(() => this.fallback());
-        } else {
-            this.fallback();
-        }
-    }
+        // Giả lập "xem xong quảng cáo" sau 5–8 giây (AdSense không có callback thật)
+        const minTime = 5000;
+        const maxTime = 8000;
+        const watchTime = Math.random() * (maxTime - minTime) + minTime;
 
-    static fallback() {
-        const next = ADS_CONTROLLER.applovin && this.currentProvider === "applovin" ? "admob" :
-            ADS_CONTROLLER.admob && this.currentProvider === "admob" ? null : null;
-
-        if (next) {
-            this.currentProvider = next;
-            console.log(`[AdsManager] Chuyển sang: ${next.toUpperCase()}`);
-            setTimeout(() => this.showRewarded(this.rewardedCallback), 800);
-        } else {
-            this.isLoading = false;
-            this.rewardedCallback?.(false);
-        }
-    }
-
-    static grantReward() {
-        this.isLoading = false;
-        window.dispatchEvent(new Event('applovin_reward_granted'));
-        window.dispatchEvent(new Event('reward_granted'));
-        this.rewardedCallback?.(true);
-    }
-
-    static denyReward() {
-        this.isLoading = false;
-        this.rewardedCallback?.(false);
+        setTimeout(() => {
+            window.dispatchEvent(new Event('reward_granted')); // cho ads-safety.js vẫn dùng được
+            callback?.(true);
+            console.log("AdSense Interstitial: Người dùng được thưởng");
+        }, watchTime);
     }
 }
 

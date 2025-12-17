@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.disabled = true;
         nextBtn.textContent = "Đang tải quảng cáo...";
 
-        AdsManager.showRewarded((success) => {
+        AdsManager.showInterstitialAsRewarded((success) => {
             if (success) {
                 displayPhase(currentPhase + 1);
+                nextBtn.textContent = "Xem tiếp";
+                nextBtn.disabled = false;
             } else {
                 nextBtn.disabled = false;
                 nextBtn.textContent = "Xem quảng cáo để đọc tiếp";
