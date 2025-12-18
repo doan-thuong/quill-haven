@@ -17,18 +17,26 @@
     },
     {
         "id": 3,
-        "title": "Tiên Giới Chi Chiến",
-        "description": "Cuộc chiến giữa các tông môn lớn...",
-        "file": "story3.json",
-        "page": "pages/story-3.html",
-        "type": "tien-hiep"
+        "title": "Con Mèo Siêu Anh Hùng",
+        "description": "Câu chuyện hài hước về boss Béo và ông chủ 'yếu tim'",
+        "file": "story_3.json",
+        "page": "story/story.html",
+        "type": "hai-huoc"
     },
     {
         "id": 4,
         "title": "Em là ánh trăng",
         "description": "Tình yêu nhẹ nhàng giữa hai con người trái ngược...",
-        "file": "story4.json",
-        "page": "pages/story-4.html",
+        "file": "story_3.json",
+        "page": "story/story.html",
         "type": "ngon-tinh"
+    },
+    {
+        "id": 5,
+        "title": "Tiên Giới Chi Chiến",
+        "description": "Cuộc chiến giữa các tông môn lớn...",
+        "file": "story_3.json",
+        "page": "story/story.html",
+        "type": "tien-hiep"
     }
 ]
