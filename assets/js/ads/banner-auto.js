@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const checkAdSense = setInterval(() => {
+        return
         if (window.adsbygoogle) {
             clearInterval(checkAdSense);
 

@@ -87,6 +87,6 @@ async function showApplovinRewarded() {
     }
 }
 
-window.initApplovin = initApplovin;
-window.showApplovinBanner = showApplovinBanner;
-window.showApplovinRewarded = showApplovinRewarded;
+// window.initApplovin = initApplovin;
+// window.showApplovinBanner = showApplovinBanner;
+// window.showApplovinRewarded = showApplovinRewarded;

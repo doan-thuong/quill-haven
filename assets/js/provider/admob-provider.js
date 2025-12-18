@@ -32,6 +32,6 @@ async function showAdmobRewarded() {
     });
 }
 
-window.initAdmob = initAdmob;
-window.showAdmobBanner = showAdmobBanner;
-window.showAdmobRewarded = showAdmobRewarded;
+// window.initAdmob = initAdmob;
+// window.showAdmobBanner = showAdmobBanner;
+// window.showAdmobRewarded = showAdmobRewarded;

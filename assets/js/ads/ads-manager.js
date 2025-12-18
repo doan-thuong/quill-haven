@@ -13,34 +13,35 @@ class AdsManager {
         }
 
         // Tự động hiện banner ở footer
-        this.showBanner();
+        // this.showBanner();
     }
 
     static showBanner() {
         const banner = document.createElement('div');
         banner.innerHTML = `
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-client="${ADSENSE_CONFIG.clientId}"
-           data-ad-slot="${ADSENSE_CONFIG.bannerSlot}"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    `;
+            <ins class="adsbygoogle"
+                style="display:block; text-align:center;"
+                data-ad-client="${ADSENSE_CONFIG.clientId}"
+                data-ad-slot="${ADSENSE_CONFIG.bannerSlot}"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        `;
         document.body.appendChild(banner);
         (adsbygoogle = window.adsbygoogle || []).push({});
         console.log("Banner AdSense đã hiển thị");
     }
 
     static showInterstitialAsRewarded(callback) {
+        return
         const interstitial = document.createElement('div');
         interstitial.innerHTML = `
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="${ADSENSE_CONFIG.clientId}"
-           data-ad-slot="${ADSENSE_CONFIG.interstitialSlot}"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    `;
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="${ADSENSE_CONFIG.clientId}"
+                data-ad-slot="${ADSENSE_CONFIG.interstitialSlot}"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+        `;
         document.body.appendChild(interstitial);
         (adsbygoogle = window.adsbygoogle || []).push({});
 
