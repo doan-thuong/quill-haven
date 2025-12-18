@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const storyList = document.getElementById('story-list');
     const sidePanel = document.getElementById('side-panel');
     const toggleBtn = document.getElementById('toggle-panel');
+    const searchInput = document.getElementById('search-input');
     let allStories = [];
 
     // Load danh sách truyện
@@ -98,4 +99,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+
+            // Lấy thể loại đang được chọn
+            const activeGenreItem = document.querySelector('.genre-list li.active');
+            const activeType = activeGenreItem ? activeGenreItem.getAttribute('data-type') : 'all';
+
+            let filtered = allStories;
+
+            // Nếu không phải "all" → lọc theo thể loại trước
+            if (activeType !== 'all') {
+                filtered = allStories.filter(story => story.type === activeType);
+            }
+
+            // Sau đó lọc theo từ khóa tìm kiếm
+            if (query) {
+                filtered = filtered.filter(story =>
+                    story.title.toLowerCase().includes(query) ||
+                    (story.description && story.description.toLowerCase().includes(query))
+                );
+            }
+
+            renderStories(filtered);
+        });
+    }
 });
